@@ -7,8 +7,12 @@
         </div>
 
         <div class="social_media">
-            <img src="../../assets/images/LinkedIn.svg" alt="LinkedIn image">
-            <img src="../../assets/images/GitHub.svg" alt="Github image">
+            <a href="https://www.linkedin.com/in/juanmunguia" target="_blank">
+                <img src="../../assets/images/LinkedIn.svg" alt="LinkedIn image">
+            </a>
+            <a href="https://github.com/GitNinja0" target="_blank">
+                <img src="../../assets/images/GitHub.svg" alt="Github image">
+            </a>
         </div>
 
     </div>
@@ -26,6 +30,12 @@
         flex-direction: row;
         flex-wrap: nowrap;
         padding: 1rem;
+        align-items: center;
+    }
+
+    .social_media{
+        display: flex;
+        flex-direction: row;
         align-items: center;
     }
 }
