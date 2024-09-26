@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Header from '@/components/Header/Header.vue';
 import Footer from '@/components/footer/Footer.vue';
+import AboutMe from '@/components/main/AboutMe.vue';
 </script>
 
 <template>
@@ -9,7 +10,7 @@ import Footer from '@/components/footer/Footer.vue';
   </header>
 
   <main>
-    <h1>Hello word</h1>
+    <AboutMe />
   </main>
 
   <footer>
