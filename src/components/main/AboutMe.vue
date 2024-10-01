@@ -7,18 +7,13 @@
             <img src="./../../assets/images/_MG_8820.jpg" alt="Juan Image">
         </div>
         <div class="text_class">
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis tenetur provident quibusdam nesciunt neque cumque explicabo, fuga id eos recusandae molestias iure obcaecati perferendis adipisci harum fugiat ullam. Neque, in?
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, at dolorem a laudantium eligendi earum repellendus error pariatur sequi exercitationem rem perspiciatis. Voluptates, corrupti ipsa. Expedita libero quaerat deserunt ea?
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis tenetur provident quibusdam nesciunt neque cumque explicabo, fuga id eos recusandae molestias iure obcaecati perferendis adipisci harum fugiat ullam. Neque, in?
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, at dolorem a laudantium eligendi earum repellendus error pariatur sequi exercitationem rem perspiciatis. Voluptates, corrupti ipsa. Expedita libero quaerat deserunt ea?
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis tenetur provident quibusdam nesciunt neque cumque explicabo, fuga id eos recusandae molestias iure obcaecati perferendis adipisci harum fugiat ullam. Neque, in?
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, at dolorem a laudantium eligendi earum repellendus error pariatur sequi exercitationem rem perspiciatis. Voluptates, corrupti ipsa. Expedita libero quaerat deserunt ea?
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis tenetur provident quibusdam nesciunt neque cumque explicabo, fuga id eos recusandae molestias iure obcaecati perferendis adipisci harum fugiat ullam. Neque, in?
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, at dolorem a laudantium eligendi earum repellendus error pariatur sequi exercitationem rem perspiciatis. Voluptates, corrupti ipsa. Expedita libero quaerat deserunt ea?
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis tenetur provident quibusdam nesciunt neque cumque explicabo, fuga id eos recusandae molestias iure obcaecati perferendis adipisci harum fugiat ullam. Neque, in?
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, at dolorem a laudantium eligendi earum repellendus error pariatur sequi exercitationem rem perspiciatis. Voluptates, corrupti ipsa. Expedita libero quaerat deserunt ea?
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis tenetur provident quibusdam nesciunt neque cumque explicabo, fuga id eos recusandae molestias iure obcaecati perferendis adipisci harum fugiat ullam. Neque, in?
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, at dolorem a laudantium eligendi earum repellendus error pariatur sequi exercitationem rem perspiciatis. Voluptates, corrupti ipsa. Expedita libero quaerat deserunt ea?
+            <p> I am a passionate web application developer with experience in Front-End, Back-End, and Cloud. I have a basic level of English and stand out for being flexible, adaptive, and cooperative in team environments. In addition to my development skills, I have experience with WordPress and proficiency in design tools such as Adobe Photoshop, InDesign, Illustrator, and Figma. I work effectively with Agile methodologies like Scrum and have a solid knowledge of design patterns, specifically MVC. I am always willing to take on great challenges and am committed to continuous learning to improve my skills and contribute to the team's success
+            </p>
+            <br>
+            <p> I am a passionate web application developer with experience in Front-End, Back-End, and Cloud. I have a basic level of English and stand out for being flexible, adaptive, and cooperative in team environments. In addition to my development skills, I have experience with WordPress and proficiency in design tools such as Adobe Photoshop, InDesign, Illustrator, and Figma. I work effectively with Agile methodologies like Scrum and have a solid knowledge of design patterns, specifically MVC. I am always willing to take on great challenges and am committed to continuous learning to improve my skills and contribute to the team's success 
+            </p>
+            <br>
+            <p> I am a passionate web application developer with experience in Front-End, Back-End, and Cloud. I have a basic level of English and stand out for being flexible, adaptive, and cooperative in team environments. In addition to my development skills, I have experience with WordPress and proficiency in design tools such as Adobe Photoshop, InDesign, Illustrator, and Figma. I work effectively with Agile methodologies like Scrum and have a solid knowledge of design patterns, specifically MVC. I am always willing to take on great challenges and am committed to continuous learning to improve my skills and contribute to the team's success 
             </p>
         </div>
 
@@ -46,6 +41,7 @@
     }
 
     .text_class{
+        margin-top: 2rem;
         width: 95%;
     }
 }
