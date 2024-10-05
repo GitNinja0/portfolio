@@ -2,6 +2,7 @@
 import Header from '@/components/Header/Header.vue';
 import Footer from '@/components/footer/Footer.vue';
 import AboutMe from '@/components/main/AboutMe.vue';
+import Skills from '@/components/main/Skills.vue';
 </script>
 
 <template>
@@ -11,6 +12,7 @@ import AboutMe from '@/components/main/AboutMe.vue';
 
   <main>
     <AboutMe />
+    <Skills />
   </main>
 
   <footer>
