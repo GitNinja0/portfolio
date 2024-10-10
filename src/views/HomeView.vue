@@ -11,8 +11,13 @@ import Skills from '@/components/main/Skills.vue';
   </header>
 
   <main>
-    <AboutMe />
-    <Skills />
+    <section id="aboutMe">
+      <AboutMe />
+    </section>
+
+    <section id="skills">
+      <Skills />
+    </section>
   </main>
 
   <footer>
