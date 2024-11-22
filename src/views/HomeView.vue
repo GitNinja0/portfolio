@@ -3,6 +3,7 @@ import Header from '@/components/Header/Header.vue';
 import Footer from '@/components/footer/Footer.vue';
 import AboutMe from '@/components/main/AboutMe.vue';
 import Skills from '@/components/main/Skills.vue';
+import Proyects from "@/components/main/Proyects.vue";
 </script>
 
 <template>
@@ -17,6 +18,10 @@ import Skills from '@/components/main/Skills.vue';
 
     <section id="skills">
       <Skills />
+    </section>
+
+    <section id="proyects">
+      <Proyects />
     </section>
   </main>
 
