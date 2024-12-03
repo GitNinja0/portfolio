@@ -20,7 +20,7 @@ export default defineComponent({
         <nav class="nav">
             <a href="#aboutMe" @click.prevent="scrollToSection('aboutMe')">About</a>
             <a href="#skills" @click.prevent="scrollToSection('skills')">Skills</a>
-            <a href="#">Proyects</a>
+            <a href="#proyects">Proyects</a>
             <a href="#">Contact</a>
         </nav>
     </div>
