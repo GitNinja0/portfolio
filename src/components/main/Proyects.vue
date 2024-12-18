@@ -28,18 +28,26 @@ console.log(store.proyect);
 
 </template>
 <style scoped>
+h2{
+    margin: 1rem;
+}
 .proyect_container{
+    width: 100%;
+
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(auto-fit, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
     justify-items: center;
+
 }
 
     .proyect{
-        margin: 1rem;
         padding: 1rem;
         border-radius: 10px;
         background-color: #00A8E8;
-        width: 30rem;
+        width: 95%;
+        height: 95%;
         display: flex;
         flex-direction: column;
         
