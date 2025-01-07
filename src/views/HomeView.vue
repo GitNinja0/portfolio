@@ -4,6 +4,7 @@ import Footer from '@/components/footer/Footer.vue';
 import AboutMe from '@/components/main/AboutMe.vue';
 import Skills from '@/components/main/Skills.vue';
 import Proyects from "@/components/main/Proyects.vue";
+import ContactMe from '@/components/main/ContactMe.vue';
 </script>
 
 <template>
@@ -22,6 +23,10 @@ import Proyects from "@/components/main/Proyects.vue";
 
     <section id="proyects">
       <Proyects />
+    </section>
+
+    <section id="contactMe">
+      <ContactMe />
     </section>
   </main>
 
