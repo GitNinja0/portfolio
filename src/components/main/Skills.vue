@@ -4,16 +4,12 @@ import { computed } from 'vue';
 
 const skillsStore = useSkillsStore();
 
-// Agrupamos las habilidades por categoría
 const groupedSkills = computed(() => {
-  // Si la store no está lista o no hay skills, devuelve un objeto vacío
   if (!skillsStore.Skills || skillsStore.Skills.length === 0) {
     return {};
   }
   
   return skillsStore.Skills
-    // --- !! ARREGLO DEL BUG "undefined" !! ---
-    // Filtramos cualquier skill que no tenga una categoría definida
     .filter(skill => skill.category) 
     .reduce((acc, skill) => {
       const category = skill.category;
@@ -27,156 +23,243 @@ const groupedSkills = computed(() => {
 </script>
 
 <template>
-  <div class="container">
-    <h2>My Skills</h2>
+  <section class="skills">
+    <div class="skills-inner">
+      <h2>Skills</h2>
 
-    <section v-for="(skills, category) in groupedSkills" :key="category" class="skill_category_section">
-      <h3>{{ category }}</h3>
-      
-      <div class="skills_container">
+      <div v-for="(skills, category) in groupedSkills" :key="category" class="skill-category">
+        <h3>{{ category }}</h3>
         
-        <div 
-          v-for="skill in skills" 
-          :key="skill.name" 
-          class="skill_card"
-          :style="{ '--skill-level': skill.level }"
-        >
-          <div class="skill_header">
-            <h4>{{ skill.name }}</h4>
-            <span>{{ skill.level }}</span>
-          </div>
-          
-          <div class="skill_progress_bar">
-            <div class="skill_progress_level"></div>
-          </div>
+        <div class="skills-container">
+          <div 
+            v-for="skill in skills" 
+            :key="skill.name" 
+            class="skill-card"
+            :style="{ '--skill-level': skill.level } as any"
+          >
+            <div class="skill-header">
+              <h4>{{ skill.name }}</h4>
+              <span class="level-badge">{{ skill.level }}</span>
+            </div>
+            
+            <div class="progress-bar">
+              <div class="progress-fill"></div>
+            </div>
 
-          <p v-if="skill.note" class="skill_note">{{ skill.note }}</p>
+            <p v-if="skill.note" class="skill-note">{{ skill.note }}</p>
+          </div>
         </div>
-
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
 </template>
 
 <style lang="scss" scoped>
-/*
- * =========================================
- * ESTILOS ADAPTADOS PARA MODO OSCURO
- * =========================================
- */
+.skills {
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, rgba(0, 23, 31, 0.5) 0%, rgba(0, 52, 89, 0.3) 100%);
+  margin: 2rem 0;
 
-.container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 2rem auto;
-  font-family: 'Arial', sans-serif;
-}
-
-h2 {
-  text-align: center;
-  font-size: 2.8rem;
-  color: #007EA7; // Tu color principal (se ve bien)
-  margin-bottom: 3rem;
-  font-weight: 600;
-}
-
-.skill_category_section {
-  margin-bottom: 3rem;
-
-  h3 {
-    font-size: 1.75rem;
-    // --- ARREGLO MODO OSCURO ---
-    color: #f0f0f0; // Texto claro para el H3 (título de categoría)
-    padding-bottom: 0.5rem;
-    border-bottom: 3px solid #007EA7; // Tu color
-    display: inline-block;
-    margin-bottom: 1.5rem;
-  }
-}
-
-.skills_container {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-}
-
-.skill_card {
-  background-color: #ffffff; // Tarjeta blanca
-  border-radius: 12px;
-  padding: 1.25rem 1.5rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-  width: 350px;
-  box-sizing: border-box;
-  border-left: 5px solid #007EA7;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-
-  &:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 16px rgba(0, 126, 167, 0.15);
+  .skills-inner {
+    max-width: 1200px;
+    margin: 0 auto;
   }
 
-  /*
-   * --- ARREGLO MODO OSCURO ---
-   * Forzamos los colores de texto DENTRO de la tarjeta
-   * para que sean oscuros y legibles sobre el fondo blanco.
-   */
-  .skill_header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 0.75rem;
+  h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, #007ea7, #00d4ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 3rem;
+    font-weight: 700;
+  }
 
-    h4 {
+  .skill-category {
+    margin-bottom: 3rem;
+
+    h3 {
+      font-size: 1.5rem;
+      color: #00d4ff;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid rgba(0, 212, 255, 0.3);
+      display: inline-block;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+  }
+
+  .skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .skill-card {
+    background: linear-gradient(135deg, rgba(0, 126, 167, 0.1), rgba(0, 212, 255, 0.05));
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #00d4ff;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+      transition: left 0.6s ease;
+    }
+
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(0, 212, 255, 0.15);
+      border-color: rgba(0, 212, 255, 0.4);
+
+      &::before {
+        left: 100%;
+      }
+    }
+
+    .skill-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
+
+      h4 {
+        font-size: 1.15rem;
+        color: #00d4ff;
+        margin: 0;
+        font-weight: 600;
+      }
+
+      .level-badge {
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: #012a33;
+        background: #dff8ff;
+        padding: 0.3rem 0.7rem;
+        border-radius: 999px;
+        white-space: nowrap;
+      }
+    }
+    
+    .progress-bar {
+      width: 100%;
+      height: 8px;
+      background: rgba(1, 33, 41, 0.15);
+      border-radius: 999px;
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: var(--skill-level);
+      background: linear-gradient(90deg, #007ea7, #00d4ff);
+      border-radius: 999px;
+      transform: scaleX(0);
+      transform-origin: left;
+      animation: fillBar 1.2s ease-out 0.3s forwards;
+    }
+
+    .skill-note {
+      font-size: 0.85rem;
+      color: #b8b8b8;
+      font-style: italic;
+      margin: 0.75rem 0 0 0;
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  @keyframes fillBar {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 2.5rem 1.5rem;
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .skill-category h3 {
       font-size: 1.25rem;
-      color: #007EA7; // Tu color
-      margin: 0;
+      margin-bottom: 1rem;
     }
 
-    span {
-      font-size: 1rem;
-      font-weight: bold;
-      color: #333333; // Texto oscuro
+    .skills-container {
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+
+    .skill-card {
+      padding: 1.25rem;
+
+      .skill-header h4 {
+        font-size: 1rem;
+      }
+
+      .skill-note {
+        font-size: 0.8rem;
+      }
     }
   }
-  
-  .skill_note {
-    font-size: 0.9rem;
-    color: #666666; // Texto gris oscuro
-    font-style: italic;
-    margin: 0.75rem 0 0 0;
-  }
-}
 
+  @media (max-width: 450px) {
+    padding: 2rem 1rem;
 
-/* --- ESTILOS DE LA BARRA DE PROGRESO (Sin cambios) --- */
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
 
-.skill_progress_bar {
-  width: 100%;
-  height: 10px;
-  background-color: #f0f0f0; // Gris claro para la base de la barra
-  border-radius: 5px;
-  overflow: hidden;
-}
+    .skill-category h3 {
+      font-size: 1.1rem;
+    }
 
-.skill_progress_level {
-  height: 100%;
-  width: var(--skill-level); // Usa la variable CSS
-  background-color: #007EA7; // Tu color
-  border-radius: 5px;
+    .skills-container {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
 
-  transform: scaleX(0);
-  transform-origin: left;
-  animation: fillBar 1.2s ease-out 0.3s forwards;
-}
+    .skill-card {
+      padding: 1rem;
 
-@keyframes fillBar {
-  from {
-    transform: scaleX(0);
-  }
-  to {
-    transform: scaleX(1);
+      .skill-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+
+        h4 {
+          font-size: 0.95rem;
+        }
+
+        .level-badge {
+          align-self: flex-start;
+          font-size: 0.75rem;
+        }
+      }
+    }
   }
 }
 </style>
